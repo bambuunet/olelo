@@ -148,7 +148,6 @@ var Olelo = function(filepath, id){
 
     //start
     putHtml('--', '', line, indent, true);
-    console.log(line)
     if(i >= mdArray.length) return;
     while(true){
       i++;
