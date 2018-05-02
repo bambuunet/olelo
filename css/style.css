@@ -1,0 +1,89 @@
+body{
+  font: 300 16px "Open Sans", "-apple-system", "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, "メイリオ", Meiryo, sans-serif !important;
+  height: 100vh;
+  letter-spacing: 0.1rem;
+  position: relative;
+}
+
+.nav{
+  background: #f45e2c;
+  color: #fff;
+  font-size: 16px;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 20px;
+  position: absolute;
+  width: 220px;
+}
+.nav li{
+  color: #fff;
+}
+.nav li a{
+  color: #fff;
+}
+.nav ul ul{
+  padding: 0 0 20px 20px;
+  line-height: 1.4em;
+}
+.nav h2{
+  font-size: 20px;
+  margin: 0 0 0.4em 0;
+}
+h1.title{
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+article{
+  color: #000;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 0 20px 0 240px;
+}
+
+.markdown{
+  background: #fcf8f7;
+  margin: 0;
+  padding: 20px;
+}
+
+.html{
+  border: solid 1px #f45e2c;
+  padding: 20px;
+}
+
+.sample{
+  border: solid 1px #f45e2c;
+  padding: 20px 20px 30px 20px;
+}
+.sample li{
+  list-style-type: circle !important;
+  margin-left: 20px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0;
+  margin-top: 0;
+}
+
+.h2{
+  color: #f95118;
+  margin-bottom: 0;
+  padding-top: 3rem;
+}
+
+.h3{
+  color: #0fbf4c;
+  font-size: 1.6rem;
+  padding-top: 2rem;
+}
+.btn{
+  background-color: #0fbf4c;
+}
+.btn:hover{
+  background-color: #45d375;
+}

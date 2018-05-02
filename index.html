@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109853225-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109853225-1');
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800|Raleway:800|Yantramanav:300" rel="stylesheet">
+    <link href="css/style.css?t=132" rel="stylesheet">
+    
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <script type="text/javascript" src="js/olelo.js?t=123"></script>
+
+    <title>Olelo</title>
+  </head>
+  <body>
+    <div class="nav">
+      <h1 class="title">Olelo</h1>
+      <ul>
+        <li>
+          <h2><a href="#what">What is Olelo</a></h2>
+        </li>
+        <li>
+          <h2>How to use</h2>
+          <ul>
+            <li><a href="#start">Getting started</a></li>
+            <li><a href="#nest">Nest</a></li>
+            <li><a href="#attribution">With attribution</a></li>
+            <li><a href="#tag_in_text">Tag in text</a></li>
+          </ul>
+        </li>
+        <li>
+          <h2>Special tags</h2>
+          <ul>
+            <li><a href="#headline">Headline</a></li>
+            <li><a href="#br">Br</a></li>
+            <li><a href="#div">Div</a></li>
+            <li><a href="#list">List</a></li>
+            <li><a href="#table">Table</a></li>
+            <li><a href="#comment">Comment</a></li>
+            <li><a href="#pre">Pre</a></li>
+            <li><a href="#script">Script</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <article>
+      <section>
+        <h2 class="h2" id="start">What is Olelo</h2>
+        <ol>
+          <li>Markdwon file is displayed as HTML on browser.</li>
+          <li>Called by only <b>1 sentense</b> in script.</li>
+          <li>Generated <b>Nest structure</b>.</li>
+          <li>JavaScript file is only <b>13KB</b>.</li>
+        </ol>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          #### Olelo is...<br>
+          - olelo.js display markdown file as HTML on browser.<br>
+          - [i Olelo] means [i words] in Hawaii.
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_what"></div>
+      </section>
+
+      <section>
+        <h2 class="h2" id="start">Getting started</h2>
+        <h3 class="h3">Download</h3>
+        <a download="olelo.js" href="js/olelo.js" class="btn">Download</a>
+        <a href="https://github.com/bambuunet/olelo" class="btn">Github</a>
+
+        <h3 class="h3">Preparing markdown</h3>
+        <p>Write in a markdown file.<br>
+        Rule: [HTML tag name][1 space][free text]
+        </p>
+        <div class="markdown">
+          h4 This is a headline.<br>
+          p This is a paragraph.
+        </div>
+
+        <h3 class="h3">Setting in HTML</h3>
+        <p>
+          Call the markdown file like this.<br>
+          <b>1st argument:</b> Markdown file path<br>
+          <b>2nd argument:</b> Id name in HTML that you want to display
+        </p>
+        <div class="html">
+          &lt;div id="tag_id"&gt;&lt;/div&gt;<br>
+          <br>
+          &lt;script&gt;<br>
+          &nbsp;&nbsp;Olelo("markdown.md", "tag_id");<br>
+          &lt;/script&gt;
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;h4&gt;This is id sample.&lt;/h4&gt;<br>
+          &lt;p&gt;This is a paragraph.&lt;/p&gt;
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_start"></div>
+      </section>
+
+      <section>
+        <h2 class="h2" id="nest">Nest</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          table<br>
+          &nbsp;&nbsp;tr<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;th ID<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;th Name<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;th Date<br>
+          &nbsp;&nbsp;tr<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;td 123<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;td Bambuu<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;td 2018-05-01
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;table&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;ID&lt;/th&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Date&lt;/th&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;123&lt;/td&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Bambuu&lt;/td&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2018-05-01&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+          &lt;/table&gt;
+        </div>
+        <h3 class="h3">Sample</h3>
+        <div class="sample" id="sample_nest"></div>
+      </section>
+
+      <section>
+        <h2 class="h2" id="attribution">With attribution</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          p#my_id This is id sample.<br>
+          p.my_class This is class sample.<br>
+          p.class1.class2.class3 This is multiple class sample.<br>
+          a(href="#"target="_blank") This is other attribution sample.<br>
+          p#my_id.my_class(style="color:#ff0000") This is combined attribution sample.
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;p id="my_id"&gt;This is id sample.&lt;/p&gt;<br>
+          &lt;p class="my_class"&gt;This is class sample.&lt;/p&gt;<br>
+          &lt;p class="class1 class2 class3"&gt;This is multiple class sample.&lt;/p&gt;<br>
+          &lt;a href="#" target="_blank"&gt;This is other attribution sample.&lt;/a&gt;<br>
+          &lt;p  id="my_id" class="my_class" style="color:#ff0000"&gt;This is combined attribution sample.&lt;/p&gt;
+        </div>
+        <h3 class="h3">Sample</h3>
+        <div class="sample" id="sample_attribution"></div>
+      </section>
+
+      <section>
+        <h2 class="h2" id="tag_in_text">Tag in text</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          p This is [a(href="#")link] [i in] [b text].<br>
+          p Push [input(type="button"value="the button")].
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;p&gt;This is &lt;a href="#"&gt;link&lt;/a&gt; &lt;i&gt;in&lt;/i&gt; &lt;b&gt;text&lt;/b&gt;.&lt;/p&gt;<br>
+          &lt;p&gt;Push &lt;input type="button" value="the button"&gt;.&lt;/p&gt;
+        </div>
+        <h3 class="h3">Sample</h3>
+        <div class="sample" id="sample_tag_in_text"></div>
+      </section>
+
+      <section>
+        <h2 class="h2" id="headline">Headline</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          # h1 headline<br>
+          ## h2 headline<br>
+          ### h3 headline<br>
+          #### h4 headline<br>
+          ##### h5 headline<br>
+          ###### h6 headline
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;h1&gt;h1 headline&lt;/h1&gt;<br>
+          &lt;h2&gt;h2 headline&lt;/h2&gt;<br>
+          &lt;h3&gt;h3 headline&lt;/h3&gt;<br>
+          &lt;h4&gt;h4 headline&lt;/h4&gt;<br>
+          &lt;h5&gt;h5 headline&lt;/h5&gt;<br>
+          &lt;h6&gt;h6 headline&lt;/h6&gt;
+        </div>
+        <h3 class="h3">Sample</h3>
+        <div class="sample" id="sample_headline"></div>
+      </section>
+
+
+      <h2 class="h2" id="class">br</h2>
+
+      <h2 class="h2" id="div">div</h2>
+
+      <h3 class="h3">Sample</h3>
+      <div class="sample" id="sample_div"></div>
+
+
+      <h2 class="h2" id="list">List</h2>
+
+
+      <h2 class="h2" id="table">Table</h2>
+
+
+      <h2 class="h2" id="script">Comment</h2>
+
+
+      <h2 class="h2" id="pre">pre</h2>
+
+      <section>
+        <h2 class="h2" id="script">script</h2>
+        <p>bodyの閉じタグの直前に挿入されます。</p>
+
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          script<br>
+          &nbsp;&nbsp;var text = "Sample text was written.";<br>
+          &nbsp;&nbsp;document.getElementById('sample_script').textContent = text;
+        </div>
+
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;script&gt;<br>
+          &nbsp;&nbsp;var text = "Sample text was written.";<br>
+          &nbsp;&nbsp;document.getElementById('sample_script').textContent = text;<br>
+          &lt;/script&gt;
+        </div>
+
+        <h3 class="h3">Sample</h3>
+        <div class="sample" id="sample_script"></div>
+      </section>
+    </article>
+
+    <script>
+      Olelo('md/what.md', 'sample_what');
+      Olelo('md/start.md', 'sample_start');
+      Olelo('md/nest.md', 'sample_nest');
+      Olelo('md/attribution.md', 'sample_attribution');
+      Olelo('md/tag_in_text.md', 'sample_tag_in_text');
+      //Olelo('md/.md', 'sample_');
+      Olelo('md/headline.md', 'sample_headline');
+      Olelo('md/script.md', 'sample_script');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  </body>
+</html>

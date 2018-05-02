@@ -1,0 +1,3 @@
+#### Olelo is...
+- olelo.js display markdown file as HTML on browser.
+- [i Olelo] means [i words] in Hawaii.
