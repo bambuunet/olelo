@@ -46,13 +46,22 @@ article{
 
 .markdown{
   background: #fcf8f7;
-  margin: 0;
+  font-family: 'courier new', monospace, serif;
+  font-size: 16px;
+  margin: 0 0 0 -12.5%;
   padding: 20px;
+  transform: scale(0.8, 1);
+  width: 125%;
 }
 
 .html{
   border: solid 1px #f45e2c;
+  font-family: 'courier new', monospace, serif;
+  font-size: 16px;
+  margin: 0 0 0 -12.5%;
   padding: 20px;
+  transform: scale(0.8, 1);
+  width: 125%;
 }
 
 .sample{

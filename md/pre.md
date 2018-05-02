@@ -8,7 +8,7 @@ div
   </style>
 
 div
-  ```
+  ```#id.class(style="color:#bbbbbb")
   <style>
     a:hover {
       color: #ccccff;

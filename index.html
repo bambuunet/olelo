@@ -12,14 +12,13 @@
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800|Raleway:800|Yantramanav:300" rel="stylesheet">
-    <link href="css/style.css?t=132" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
+    <link href="css/style.css?t=133" rel="stylesheet">
     
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-    <script type="text/javascript" src="js/olelo.js?t=131"></script>
+    <script type="text/javascript" src="js/olelo.js?t=138"></script>
 
     <title>Olelo</title>
   </head>
@@ -61,12 +60,12 @@
 
     <article>
       <section>
-        <h2 class="h2" id="start">What is Olelo</h2>
+        <h2 class="h2" id="what">What is Olelo</h2>
         <ol>
           <li>Markdwon file is displayed as HTML on browser.</li>
           <li>Called by only <b>1 sentense</b> in script.</li>
           <li>Generated <b>nest structure</b>.</li>
-          <li>JavaScript file is only <b>13KB</b>.</li>
+          <li>JavaScript file is only <b>14KB</b>.</li>
         </ol>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
@@ -153,17 +152,25 @@
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
           p#my_id This is id sample.<br>
+          <br>
           p.my_class This is class sample.<br>
+          <br>
           p.class1.class2.class3 This is multiple class sample.<br>
+          <br>
           a(href="#"target="_blank") This is other attribution sample.<br>
+          <br>
           p#my_id.my_class(style="color:#ff0000") This is combined attribution sample.
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
           &lt;p id="my_id"&gt;This is id sample.&lt;/p&gt;<br>
+          <br>
           &lt;p class="my_class"&gt;This is class sample.&lt;/p&gt;<br>
+          <br>
           &lt;p class="class1 class2 class3"&gt;This is multiple class sample.&lt;/p&gt;<br>
+          <br>
           &lt;a href="#" target="_blank"&gt;This is other attribution sample.&lt;/a&gt;<br>
+          <br>
           &lt;p  id="my_id" class="my_class" style="color:#ff0000"&gt;This is combined attribution sample.&lt;/p&gt;
         </div>
         <h3 class="h3">On browser</h3>
@@ -175,13 +182,17 @@
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
           p Write [u an underline].<br>
+          <br>
           p Push [input(type="button"value="the button")].<br>
+          <br>
           p Click [a#my_id.my_class(href="#")the link].
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
           &lt;p&gt;Write &lt;u&gt;an underline&lt;/u&gt;.&lt;/p&gt;<br>
+          <br>
           &lt;p&gt;Push &lt;input type="button" value="the button"&gt;.&lt;/p&gt;<br>
+          <br>
           &lt;p&gt;Click &lt;a id="my_id" class="my_class" href="#"&gt;the link&lt;/a&gt;.&lt;/p&gt;
         </div>
         <h3 class="h3">On browser</h3>
@@ -213,7 +224,7 @@
       </section>
 
       <section>
-        <h2 class="h2" id="br">br</h2>
+        <h2 class="h2" id="br">Br</h2>
         <p>2 spaces are changed into &lt;br&gt;.</p>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
@@ -228,7 +239,7 @@
       </section>
 
       <section>
-        <h2 class="h2" id="div">div</h2>
+        <h2 class="h2" id="div">Div</h2>
         <p>&lt;div&gt; is generated if the first character is "#" or ".".</p>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
@@ -248,12 +259,17 @@
         <h2 class="h2" id="list">List</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          - list
-          - list
+          - list<br>
+          - list<br>
           - list
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
+          &lt;ul&gt;<br>
+          &nbsp;&nbsp;&lt;li&gt;list&lt;/li&gt;<br>
+          &nbsp;&nbsp;&lt;li&gt;list&lt;/li&gt;<br>
+          &nbsp;&nbsp;&lt;li&gt;list&lt;/li&gt;<br>
+          &lt;/ul&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_list"></div>
@@ -263,40 +279,120 @@
         <h2 class="h2" id="table">Table</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
+          |id&nbsp;|name|date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|#id.class(style="background:#eeeeee")<br>
+          |---|----|----------|<br>
+          |123|Kato|2018-05-01|<br>
+          |124|Sato|2018-05-02|
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
+          &lt;table id="id" class="class" style="background:#eeeeee"&gt;<br>
+          &nbsp;&nbsp;&lt;thead&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;id&lt;/th&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;name&lt;/th&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;date&lt;/th&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+          &nbsp;&nbsp;&lt;/thead&gt;<br>
+          &nbsp;&nbsp;&lt;tbody&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;123&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Kato&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2018-05-01&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;124&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Sato&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2018-05-02&lt;/td&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+          &nbsp;&nbsp;&lt;/tbody&gt;<br>
+          &lt;/table&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_table"></div>
       </section>
 
       <section>
-        <h2 class="h2" id="script">Comment</h2>
+        <h2 class="h2" id="comment">Comment</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
+          //This is visible comment<br>
+          &nbsp;&nbsp;1. visible<br>
+          &nbsp;&nbsp;2. visible<br>
+          <br>
+          p Next is visible comment //This is visible comment<br>
+          <br>
+          //-This is invisible comment<br>
+          &nbsp;&nbsp;a. invisible<br>
+          &nbsp;&nbsp;b. invisible<br>
+          <br>
+          p Next is invisible comment //-This is invisible comment
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
+          &lt;!--<br>
+          &nbsp;&nbsp;This is visible comment<br>
+          &nbsp;&nbsp;1. visible<br>
+          &nbsp;&nbsp;2. visible<br>
+          --&gt;<br>
+          <br>
+          &lt;p&gt;Next is visible comment&lt;!-- This is visible comment --&gt;&lt;/p&gt;<br>
+          <br>
+          &lt;p&gt;Next is invisible comment&lt;/p&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_comment"></div>
       </section>
 
       <section>
-        <h2 class="h2" id="pre">pre</h2>
+        <h2 class="h2" id="pre">Pre</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
+          div<br>
+          &nbsp;&nbsp;```<br>
+          &nbsp;&nbsp;&lt;style&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;a {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: #0000ff;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-decoration: none;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/style&gt;<br>
+          <br>
+          div<br>
+          &nbsp;&nbsp;```<br>
+          &nbsp;&nbsp;&lt;style&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;a:hover {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: #ccccff;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-decoration: underline;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/style&gt;<br>
+          &nbsp;&nbsp;```
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
+          &lt;div&gt;<br>
+            &nbsp;&nbsp;&lt;pre&gt;&lt;code&gt;&amp;lt;style&amp;gt;<br>
+            &nbsp;&nbsp;a {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;color: #0000ff;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;text-decoration: none;<br>
+            &nbsp;&nbsp;}<br>
+          &amp;lt;/style&amp;gt;&lt;/code&gt;&lt;/pre&gt;<br>
+          &lt;/div&gt;<br>
+          <br>
+          &lt;div&gt;<br>
+            &nbsp;&nbsp;&lt;pre&gt;&lt;code&gt;&amp;lt;style&amp;gt;<br>
+            &nbsp;&nbsp;a:hover {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;color: #ccccff;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;text-decoration: underline;<br>
+            &nbsp;&nbsp;}<br>
+          &amp;lt;/style&amp;gt;&lt;/code&gt;&lt;/pre&gt;<br>
+          &lt;/div&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_pre"></div>
       </section>
 
       <section>
-        <h2 class="h2" id="script">script</h2>
+        <h2 class="h2" id="script">Script</h2>
         <p>Script block is added right before the &lt;/body&gt;.</p>
 
         <h3 class="h3">Markdown</h3>
@@ -332,9 +428,9 @@
       Olelo('md/headline.md', 'sample_headline');
       Olelo('md/br.md', 'sample_br');
       Olelo('md/div.md', 'sample_div');
-      Olelo('md/list.md?a', 'sample_list');
+      Olelo('md/list.md', 'sample_list');
       Olelo('md/table.md', 'sample_table');
-      Olelo('md/comment.md', 'sample_comment');
+      Olelo('md/comment.md?3', 'sample_comment');
       Olelo('md/pre.md?a', 'sample_pre');
       Olelo('md/script.md', 'sample_script');
     </script>
