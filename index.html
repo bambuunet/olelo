@@ -19,7 +19,7 @@
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
-    <script type="text/javascript" src="js/olelo.js?t=123"></script>
+    <script type="text/javascript" src="js/olelo.js?t=131"></script>
 
     <title>Olelo</title>
   </head>
@@ -53,6 +53,10 @@
           </ul>
         </li>
       </ul>
+      <div class="social">
+        <a href="https://github.com/bambuunet/olelo" target="_blank"><img src="img/github.svg" width="26"></a>
+        <a href="https://twitter.com/bambuunet" target="_blank"><img src="img/twitter.svg" width="26"></a>
+      </div>
     </div>
 
     <article>
@@ -61,7 +65,7 @@
         <ol>
           <li>Markdwon file is displayed as HTML on browser.</li>
           <li>Called by only <b>1 sentense</b> in script.</li>
-          <li>Generated <b>Nest structure</b>.</li>
+          <li>Generated <b>nest structure</b>.</li>
           <li>JavaScript file is only <b>13KB</b>.</li>
         </ol>
         <h3 class="h3">Markdown</h3>
@@ -82,7 +86,7 @@
 
         <h3 class="h3">Preparing markdown</h3>
         <p>Write in a markdown file.<br>
-        Rule: [HTML tag name][1 space][free text]
+        <b>Rule:</b> [ HTML tag name ] [ 1 space ] [ free text ]
         </p>
         <div class="markdown">
           h4 This is a headline.<br>
@@ -122,7 +126,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;th Date<br>
           &nbsp;&nbsp;tr<br>
           &nbsp;&nbsp;&nbsp;&nbsp;td 123<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;td Bambuu<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;td Ringo Takemura<br>
           &nbsp;&nbsp;&nbsp;&nbsp;td 2018-05-01
         </div>
         <h3 class="h3">Generated HTML</h3>
@@ -135,12 +139,12 @@
             &nbsp;&nbsp;&lt;/tr&gt;<br>
             &nbsp;&nbsp;&lt;tr&gt;<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;123&lt;/td&gt;<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Bambuu&lt;/td&gt;<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Ringo Takemura&lt;/td&gt;<br>
               &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2018-05-01&lt;/td&gt;<br>
             &nbsp;&nbsp;&lt;/tr&gt;<br>
           &lt;/table&gt;
         </div>
-        <h3 class="h3">Sample</h3>
+        <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_nest"></div>
       </section>
 
@@ -162,7 +166,7 @@
           &lt;a href="#" target="_blank"&gt;This is other attribution sample.&lt;/a&gt;<br>
           &lt;p  id="my_id" class="my_class" style="color:#ff0000"&gt;This is combined attribution sample.&lt;/p&gt;
         </div>
-        <h3 class="h3">Sample</h3>
+        <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_attribution"></div>
       </section>
 
@@ -170,15 +174,17 @@
         <h2 class="h2" id="tag_in_text">Tag in text</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          p This is [a(href="#")link] [i in] [b text].<br>
-          p Push [input(type="button"value="the button")].
+          p Write [u an underline].<br>
+          p Push [input(type="button"value="the button")].<br>
+          p Click [a#my_id.my_class(href="#")the link].
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
-          &lt;p&gt;This is &lt;a href="#"&gt;link&lt;/a&gt; &lt;i&gt;in&lt;/i&gt; &lt;b&gt;text&lt;/b&gt;.&lt;/p&gt;<br>
-          &lt;p&gt;Push &lt;input type="button" value="the button"&gt;.&lt;/p&gt;
+          &lt;p&gt;Write &lt;u&gt;an underline&lt;/u&gt;.&lt;/p&gt;<br>
+          &lt;p&gt;Push &lt;input type="button" value="the button"&gt;.&lt;/p&gt;<br>
+          &lt;p&gt;Click &lt;a id="my_id" class="my_class" href="#"&gt;the link&lt;/a&gt;.&lt;/p&gt;
         </div>
-        <h3 class="h3">Sample</h3>
+        <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_tag_in_text"></div>
       </section>
 
@@ -202,33 +208,96 @@
           &lt;h5&gt;h5 headline&lt;/h5&gt;<br>
           &lt;h6&gt;h6 headline&lt;/h6&gt;
         </div>
-        <h3 class="h3">Sample</h3>
+        <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_headline"></div>
       </section>
 
+      <section>
+        <h2 class="h2" id="br">br</h2>
+        <p>2 spaces are changed into &lt;br&gt;.</p>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          p new line  new line  new line
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;p&gt;new line&lt;br&gt;new line&lt;br&gt;new line&lt;/p&gt;
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_br"></div>
+      </section>
 
-      <h2 class="h2" id="class">br</h2>
+      <section>
+        <h2 class="h2" id="div">div</h2>
+        <p>&lt;div&gt; is generated if the first character is "#" or ".".</p>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          #id div block<br>
+          .class div block
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+          &lt;div id="id"&gt;div block&lt;/div&gt;<br>
+          &lt;div class="class"&gt;.class div block&lt;/div&gt;
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_div"></div>
+      </section>
 
-      <h2 class="h2" id="div">div</h2>
+      <section>
+        <h2 class="h2" id="list">List</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+          - list
+          - list
+          - list
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_list"></div>
+      </section>
 
-      <h3 class="h3">Sample</h3>
-      <div class="sample" id="sample_div"></div>
+      <section>
+        <h2 class="h2" id="table">Table</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_table"></div>
+      </section>
 
+      <section>
+        <h2 class="h2" id="script">Comment</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_comment"></div>
+      </section>
 
-      <h2 class="h2" id="list">List</h2>
-
-
-      <h2 class="h2" id="table">Table</h2>
-
-
-      <h2 class="h2" id="script">Comment</h2>
-
-
-      <h2 class="h2" id="pre">pre</h2>
+      <section>
+        <h2 class="h2" id="pre">pre</h2>
+        <h3 class="h3">Markdown</h3>
+        <div class="markdown">
+        </div>
+        <h3 class="h3">Generated HTML</h3>
+        <div class="html">
+        </div>
+        <h3 class="h3">On browser</h3>
+        <div class="sample" id="sample_pre"></div>
+      </section>
 
       <section>
         <h2 class="h2" id="script">script</h2>
-        <p>bodyの閉じタグの直前に挿入されます。</p>
+        <p>Script block is added right before the &lt;/body&gt;.</p>
 
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
@@ -245,9 +314,13 @@
           &lt;/script&gt;
         </div>
 
-        <h3 class="h3">Sample</h3>
+        <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_script"></div>
       </section>
+
+      <footer>
+        © 2018- Olelo, All rights reserved.
+      </footer>
     </article>
 
     <script>
@@ -256,8 +329,13 @@
       Olelo('md/nest.md', 'sample_nest');
       Olelo('md/attribution.md', 'sample_attribution');
       Olelo('md/tag_in_text.md', 'sample_tag_in_text');
-      //Olelo('md/.md', 'sample_');
       Olelo('md/headline.md', 'sample_headline');
+      Olelo('md/br.md', 'sample_br');
+      Olelo('md/div.md', 'sample_div');
+      Olelo('md/list.md?a', 'sample_list');
+      Olelo('md/table.md', 'sample_table');
+      Olelo('md/comment.md', 'sample_comment');
+      Olelo('md/pre.md?a', 'sample_pre');
       Olelo('md/script.md', 'sample_script');
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>

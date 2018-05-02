@@ -5,5 +5,5 @@ table
     th Date
   tr
     td 123
-    td Bambuu
+    td Ringo Takemura
     td 2018-05-01

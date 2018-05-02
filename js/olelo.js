@@ -10,7 +10,7 @@
 
   ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ*/
 
-var Olelo = function(filename, target){
+var Olelo = function(filepath, id){
 
   'use strict';
 
@@ -22,16 +22,36 @@ var Olelo = function(filename, target){
       i = -1,
       timeStarted = new Date();
 
-  readFile(filename);
+  if(!checkId()) return;
 
-  function readFile(filename){
+  readFile();
+
+  function checkId(){
+    var node = document.getElementById(id);
+    if(!node){
+      console.error('There is no same id in the HTML.');
+      return false;
+    }
+    return true;
+  }
+
+  function readFile(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', filename);
+    xhr.open('GET', filepath);
     xhr.onload = function (e) {
+      if(!checkFilepath(xhr)) return;
       makeHtml(xhr.responseText);
     }
     xhr.send();
     return;
+  }
+
+  function checkFilepath(xhr){
+    if(xhr.readyState != 4 || xhr.status != 200){
+      console.error('There is incorrect markdown file path.');
+      return false;
+    }
+    return true;
   }
 
   function makeHtml(md){
@@ -75,7 +95,7 @@ var Olelo = function(filename, target){
 
     deleteLessAnchor(-1, anchorBase);
     html = html.replace(/([\s\n]*)\n/g, '\n');
-    document.getElementById(target).insertAdjacentHTML('beforeend', html);
+    document.getElementById(id).insertAdjacentHTML('beforeend', html);
     console.info('Olelo has finished. HTML was generated in ' + String(new Date() - timeStarted) + ' ms');
     return;
   }
@@ -145,32 +165,45 @@ var Olelo = function(filename, target){
   }
 
   function makePre(hash){
-    var line = hash['line'];
+    //var line = hash['line'];
     var indent = hash['indent'];
+    var isFirstLine = true;
 
     //start
     putHtml('pre', '', '', indent, true);
+    putHtml('code', '', '', indent, true);
+
+    var reCodeSpace = new RegExp('(\\<code\\>)(\\s*)' + anchorBase);
+    html = html.replace(reCodeSpace, '$1' + anchorBase);
+
+    var rePreCodeSpace = new RegExp('(\\<pre\\>)([\\s\\n]*)(\\<code\\>)' + anchorBase);
+    html = html.replace(rePreCodeSpace, '$1$3' + anchorBase);
+
     i++;
     if(i >= mdArray.length) return;
     while(true){
-      line = mdArray[i];
-      
+      var line = mdArray[i];
       //end
       var indent2 = getIndent(line, baseIndent);
-      if(indent2 <= indent){
-        break;
-      }
+      if(indent2 < indent) break;
+      if(line.match('```')) break;
 
-      var spaceRE = new RegExp('^' + setIndent(indent + 1));
+      var spaceRE = new RegExp('^' + setIndent(indent));
       line = line.replace(spaceRE, '');
-      line = line.replace(/`([^`]+)`/, '<code>$1</code>');
+
       line = line.replace(/&/g, '&amp;');
       line = line.replace(/'/g, '&#x27;');
       line = line.replace(/`/g, '&#x60;');
       line = line.replace(/"/g, '&quot;');
       line = line.replace(/</g, '&lt;');
       line = line.replace(/>/g, '&gt;');
-      putHtmlIntoUpper(line, indent);
+      if(isFirstLine){
+        isFirstLine = false;
+        putHtmlIntoUpper(line, 0);
+      }
+      else{
+        putHtmlIntoUpper('\n' + line, 0);
+      }
       i++;
     }
   }
@@ -292,7 +325,7 @@ var Olelo = function(filename, target){
     if(line == ''){
       return 0;
     }
-    return line.match(/^ +/) ? line.match(/^ +/)[0].length / baseIndent : 0;
+    return line.match(/^\s+/) ? line.match(/^\s+/)[0].length / baseIndent : 0;
   }
 
   function setIndent(indent){

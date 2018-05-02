@@ -57,7 +57,7 @@ article{
 
 .sample{
   border: solid 1px #f45e2c;
-  padding: 20px 20px 30px 20px;
+  padding: 20px 20px 20px 20px;
 }
 .sample li{
   list-style-type: circle !important;
@@ -86,4 +86,9 @@ h1, h2, h3, h4, h5, h6{
 }
 .btn:hover{
   background-color: #45d375;
+}
+footer{
+  padding: 20px 0;
+  border-top: solid 1px #eee;
+  margin: 40px 0 0 0;
 }

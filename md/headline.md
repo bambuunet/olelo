@@ -1,6 +1,6 @@
-# h1 text
-## h2 text
-### h3 text
-#### h4 text
-##### h5 text
-###### h6 text
+# h1 headline
+## h2 headline
+### h3 headline
+#### h4 headline
+##### h5 headline
+###### h6 headline
