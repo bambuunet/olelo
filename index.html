@@ -21,7 +21,7 @@
 
     <script type="text/javascript" src="js/olelo.js?t=138"></script>
 
-    <title>Olelo</title>
+    <title>Olelo | markdown parser in Javascript</title>
   </head>
   <body>
     <div class="nav">
@@ -36,7 +36,7 @@
             <li><a href="#start">Getting started</a></li>
             <li><a href="#nest">Nest</a></li>
             <li><a href="#attribution">With attribution</a></li>
-            <li><a href="#tag_in_text">Tag in text</a></li>
+            <li><a href="#tag_in_line">Tag in line</a></li>
           </ul>
         </li>
         <li>
@@ -89,8 +89,8 @@
         <b>Rule:</b> [ HTML tag name ] [ 1 space ] [ free text ]
         </p>
         <div class="markdown">
-          h4 This is a headline.<br>
-          p This is a paragraph.
+          <strong>h4</strong> This is a headline.<br>
+          <strong>p</strong> This is a paragraph.
         </div>
 
         <h3 class="h3">Setting in HTML</h3>
@@ -108,8 +108,8 @@
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
-          &lt;h4&gt;This is id sample.&lt;/h4&gt;<br>
-          &lt;p&gt;This is a paragraph.&lt;/p&gt;
+          <strong>&lt;h4&gt;</strong>This is id sample.<strong>&lt;/h4&gt;</strong><br>
+          <strong>&lt;p&gt;</strong>This is a paragraph.<strong>&lt;/p&gt;</strong>
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_start"></div>
@@ -117,6 +117,7 @@
 
       <section>
         <h2 class="h2" id="nest">Nest</h2>
+        <p>Unify the space number of indents with a certain numerical multiple.</p>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
           table<br>
@@ -152,49 +153,49 @@
         <h2 class="h2" id="attribution">With attribution</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          p#my_id This is id sample.<br>
+          p<strong>#my_id</strong> This is id sample.<br>
           <br>
-          p.my_class This is class sample.<br>
+          p<strong>.my_class</strong> This is class sample.<br>
           <br>
-          p.class1.class2.class3 This is multiple class sample.<br>
+          p<strong>.class1.class2.class3</strong> This is multiple class sample.<br>
           <br>
-          a(href="#"target="_blank") This is other attribution sample.<br>
+          a<strong>(href="#"target="_blank")</strong> This is other attribution sample.<br>
           <br>
-          p#my_id.my_class(style="color:#ff0000") This is combined attribution sample.
+          p<strong>#my_id.my_class(style="color:#ff0000")</strong> This is combined attribution sample.
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
-          &lt;p id="my_id"&gt;This is id sample.&lt;/p&gt;<br>
+          &lt;p <strong>id="my_id"</strong>&gt;This is id sample.&lt;/p&gt;<br>
           <br>
-          &lt;p class="my_class"&gt;This is class sample.&lt;/p&gt;<br>
+          &lt;p <strong>class="my_class"</strong>&gt;This is class sample.&lt;/p&gt;<br>
           <br>
-          &lt;p class="class1 class2 class3"&gt;This is multiple class sample.&lt;/p&gt;<br>
+          &lt;p <strong>class="class1 class2 class3"</strong>&gt;This is multiple class sample.&lt;/p&gt;<br>
           <br>
-          &lt;a href="#" target="_blank"&gt;This is other attribution sample.&lt;/a&gt;<br>
+          &lt;a <strong>href="#" target="_blank"</strong>&gt;This is other attribution sample.&lt;/a&gt;<br>
           <br>
-          &lt;p  id="my_id" class="my_class" style="color:#ff0000"&gt;This is combined attribution sample.&lt;/p&gt;
+          &lt;p <strong>id="my_id" class="my_class" style="color:#ff0000"</strong>&gt;This is combined attribution sample.&lt;/p&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_attribution"></div>
       </section>
 
       <section>
-        <h2 class="h2" id="tag_in_text">Tag in text</h2>
+        <h2 class="h2" id="tag_in_line">Tag in line</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          p Write [u an underline].<br>
+          p Write <strong>[u an underline]</strong>.<br>
           <br>
-          p Push [input(type="button"value="the button")].<br>
+          p Push <strong>[input(type="button"value="the button")]</strong>.<br>
           <br>
-          p Click [a#my_id.my_class(href="#")the link].
+          p Click <strong>[a#my_id.my_class(href="#")the link]</strong>.
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
-          &lt;p&gt;Write &lt;u&gt;an underline&lt;/u&gt;.&lt;/p&gt;<br>
+          &lt;p&gt;Write <strong>&lt;u&gt;an underline&lt;/u&gt;</strong>.&lt;/p&gt;<br>
           <br>
-          &lt;p&gt;Push &lt;input type="button" value="the button"&gt;.&lt;/p&gt;<br>
+          &lt;p&gt;Push <strong>&lt;input type="button" value="the button"&gt;</strong>.&lt;/p&gt;<br>
           <br>
-          &lt;p&gt;Click &lt;a id="my_id" class="my_class" href="#"&gt;the link&lt;/a&gt;.&lt;/p&gt;
+          &lt;p&gt;Click <strong>&lt;a id="my_id" class="my_class" href="#"&gt;the link&lt;/a&gt;</strong>.&lt;/p&gt;
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_tag_in_text"></div>
@@ -204,21 +205,21 @@
         <h2 class="h2" id="headline">Headline</h2>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          # h1 headline<br>
-          ## h2 headline<br>
-          ### h3 headline<br>
-          #### h4 headline<br>
-          ##### h5 headline<br>
-          ###### h6 headline
+          <strong>#</strong> h1 headline<br>
+          <strong>##</strong> h2 headline<br>
+          <strong>###</strong> h3 headline<br>
+          <strong>####</strong> h4 headline<br>
+          <strong>#####</strong> h5 headline<br>
+          <strong>######</strong> h6 headline
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
-          &lt;h1&gt;h1 headline&lt;/h1&gt;<br>
-          &lt;h2&gt;h2 headline&lt;/h2&gt;<br>
-          &lt;h3&gt;h3 headline&lt;/h3&gt;<br>
-          &lt;h4&gt;h4 headline&lt;/h4&gt;<br>
-          &lt;h5&gt;h5 headline&lt;/h5&gt;<br>
-          &lt;h6&gt;h6 headline&lt;/h6&gt;
+          <strong>&lt;h1&gt;</strong> headline<strong>&lt;/h1&gt;</strong><br>
+          <strong>&lt;h2&gt;</strong>h2 headline<strong>&lt;/h2&gt;</strong><br>
+          <strong>&lt;h3&gt;</strong>h3 headline<strong>&lt;/h3&gt;</strong><br>
+          <strong>&lt;h4&gt;</strong>h4 headline<strong>&lt;/h4&gt;</strong><br>
+          <strong>&lt;h5&gt;</strong>h5 headline<strong>&lt;/h5&gt;</strong><br>
+          <strong>&lt;h6&gt;</strong>h6 headline<strong>&lt;/h6&gt;</strong>
         </div>
         <h3 class="h3">On browser</h3>
         <div class="sample" id="sample_headline"></div>
@@ -229,7 +230,7 @@
         <p>2 spaces are changed into &lt;br&gt;.</p>
         <h3 class="h3">Markdown</h3>
         <div class="markdown">
-          p new line  new line  new line
+          p new line&nbsp;&nbsp;new line&nbsp;&nbsp;new line
         </div>
         <h3 class="h3">Generated HTML</h3>
         <div class="html">
@@ -425,7 +426,7 @@
       Olelo('md/start.md', 'sample_start');
       Olelo('md/nest.md', 'sample_nest');
       Olelo('md/attribution.md', 'sample_attribution');
-      Olelo('md/tag_in_text.md', 'sample_tag_in_text');
+      Olelo('md/tag_in_line.md', 'sample_tag_in_line');
       Olelo('md/headline.md', 'sample_headline');
       Olelo('md/br.md', 'sample_br');
       Olelo('md/div.md', 'sample_div');

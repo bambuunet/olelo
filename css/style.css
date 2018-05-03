@@ -72,6 +72,11 @@ article{
   list-style-type: circle !important;
   margin-left: 20px;
 }
+strong{
+  color: #f45e2c;
+  font-size: 300;
+}
+
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Montserrat', sans-serif;
