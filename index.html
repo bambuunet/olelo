@@ -360,7 +360,7 @@
           &nbsp;&nbsp;&lt;/style&gt;<br>
           <br>
           div<br>
-          &nbsp;&nbsp;```<br>
+          &nbsp;&nbsp;```#id.class(style="color:#bbbbbb")<br>
           &nbsp;&nbsp;&lt;style&gt;<br>
           &nbsp;&nbsp;&nbsp;&nbsp;a:hover {<br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: #ccccff;<br>
@@ -381,7 +381,7 @@
           &lt;/div&gt;<br>
           <br>
           &lt;div&gt;<br>
-            &nbsp;&nbsp;&lt;pre&gt;&lt;code&gt;&amp;lt;style&amp;gt;<br>
+            &nbsp;&nbsp;&lt;pre id="id" class="class" style="color:#bbbbbb"&gt;&lt;code&gt;&amp;lt;style&amp;gt;<br>
             &nbsp;&nbsp;a:hover {<br>
             &nbsp;&nbsp;&nbsp;&nbsp;color: #ccccff;<br>
             &nbsp;&nbsp;&nbsp;&nbsp;text-decoration: underline;<br>
@@ -430,10 +430,10 @@
       Olelo('md/headline.md', 'sample_headline');
       Olelo('md/br.md', 'sample_br');
       Olelo('md/div.md', 'sample_div');
-      Olelo('md/list.md', 'sample_list');
+      Olelo('md/list.md?a', 'sample_list');
       Olelo('md/table.md', 'sample_table');
-      Olelo('md/comment.md?3', 'sample_comment');
-      Olelo('md/pre.md?a', 'sample_pre');
+      Olelo('md/comment.md', 'sample_comment');
+      Olelo('md/pre.md', 'sample_pre');
       Olelo('md/script.md', 'sample_script');
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>

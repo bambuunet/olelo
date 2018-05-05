@@ -1,6 +1,6 @@
 /*ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ
 
-  Olelo 1.0.0
+  Olelo 1.0.1
   Olelo markdown files as html.
 
   Copyright 2018- Ringo Takemura
@@ -408,10 +408,10 @@ var Olelo = function(filepath, id){
     text = text.replace(/  /g, '<br>');
 
     //comment only md
-    text = text.replace(/\s*\/\/\-.*/, '');
+    text = text.replace(/(^|\s+)\/\/\-.*/, '');
 
     //comment
-    text = text.replace(/\s*\/\/(.*)/, '<!-- $1 -->');
+    text = text.replace(/(^|\s+)\/\/(.*)/, '<!-- $2 -->');
 
     //img#aaa.bbb.ccc => <img id="aaa" class="bbb ccc">
     text = text.replace(/\[([\w\#\-]+)\.([\w\.\-]*)\(/g, '[$1(class="$2"').replace(/\[(\w+)\#([\w\-]+)\(/, '[$1(id="$2"').replace(/class="[\w\-\.]+/g, function(){
