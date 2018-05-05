@@ -1,6 +1,6 @@
 /*ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ
 
-  Olelo 1.0.1
+  Olelo 1.0.2
   Olelo markdown files as html.
 
   Copyright 2018- Ringo Takemura
@@ -266,7 +266,9 @@ var Olelo = function(filepath, id){
       thArr = thArr.match(/\|.*(?=\|)/)[0].split('|');
       for(var ii = 1; ii < thArr.length; ii++){
         deleteLessAnchor(indent+3);
-        putHtml('th', '', thArr[ii], indent+3, true);
+        var text = thArr[ii].replace(/^\s+/, '').replace(/\s+$/, '');
+        text = getText(text, true);
+        putHtml('th', '', text, indent+3, true);
       }
       i++;
       if(i >= mdArray.length) break;
@@ -287,11 +289,13 @@ var Olelo = function(filepath, id){
       deleteLessAnchor(indent+2);
       putHtml('tr', '', '', indent+2 , true);
 
-      var thArr = line.replace(/\s*\|\s*/, '|');//remove spaces
-      thArr = thArr.match(/\|.+(?=\|)/)[0].split('|');
-      for(var ii = 1; ii < thArr.length; ii++){
+      var trArr = line.replace(/\s*\|\s*/, '|');//remove spaces
+      trArr = trArr.match(/\|.+(?=\|)/)[0].split('|');
+      for(var ii = 1; ii < trArr.length; ii++){
         deleteLessAnchor(indent+3);
-        putHtml('td', '', thArr[ii], indent+3, html, true);
+        var text = trArr[ii].replace(/^\s+/, '').replace(/\s+$/, '');
+        text = getText(text, true);
+        putHtml('td', '', text, indent+3, html, true);
       }
       i++;
       if(i >= mdArray.length) break;
