@@ -1,6 +1,6 @@
 /*ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ
 
-  Olelo 1.0.2
+  Olelo 1.0.3
   Olelo markdown files as html.
 
   Copyright 2018- Ringo Takemura
@@ -396,6 +396,7 @@ var Olelo = function(filepath, id){
 
   function getText(line, isNotTag){
     line = line.replace(/^\s*/, '');
+    line = line.replace(/^[^)]+"\s[^)]+(?=\)\s)/g, '"');//delete space in (attr="attr" attr="attr")
     var text = '';
     if(isNotTag){
       text = line;
