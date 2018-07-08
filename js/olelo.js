@@ -1,6 +1,6 @@
 /*ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ
 
-  Olelo 1.0.5
+  Olelo 1.1.0
   Olelo markdown files as html.
 
   Copyright 2018- Ringo Takemura
@@ -10,7 +10,7 @@
 
   ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ ﾟ･*:.｡..｡.:*･ﾟ*/
 
-var Olelo = function(filepath, id){
+var Olelo = function(filepath, id, asynchronous){
 
   'use strict';
 
@@ -23,8 +23,7 @@ var Olelo = function(filepath, id){
       timeStarted = new Date();
 
   if(!checkId()) return;
-
-  readFile();
+  return readFile();
 
   function checkId(){
     var node = document.getElementById(id);
@@ -35,15 +34,20 @@ var Olelo = function(filepath, id){
     return true;
   }
 
+  function setAsynchronous(){
+    if(asynchronous === null) asynchronous = true;
+    return;
+  }
+
   function readFile(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', filepath);
+    xhr.open('GET', filepath, asynchronous);
     xhr.onload = function (e) {
-      if(!checkFilepath(xhr)) return;
+      if(!checkFilepath(xhr)) return false;
       makeHtml(xhr.responseText);
     }
     xhr.send();
-    return;
+    return true;
   }
 
   function checkFilepath(xhr){
@@ -97,7 +101,7 @@ var Olelo = function(filepath, id){
     html = html.replace(/([\s\n]*)\n/g, '\n');
     document.getElementById(id).insertAdjacentHTML('beforeend', html);
     console.info('Olelo has finished. HTML was generated in ' + String(new Date() - timeStarted) + ' ms');
-    return;
+    return true;
   }
 
   function makeScript(hash){
@@ -503,12 +507,12 @@ var Olelo = function(filepath, id){
     var upperAnchor = getAnchor(indent - 1);
     var beforeUpperAnchorRE = new RegExp('(?=' + upperAnchor + ')');
 
-    var res = '\n' + setIndent(indent) + '<' + tag ;
+    var res = '\n' + '<' + tag ;
     res += attrStr;
-    res += '>\n' + setIndent(indent + 1) ;
-    res += text + '\n' + setIndent(indent) ;
+    res += '>\n';
+    res += text + '\n';
     res += currentAnchor;
-    res += hasEndTag ? setIndent(indent) + '</' + tag + '>\n' : '';
+    res += hasEndTag ? '</' + tag + '>\n' : '';
 
     if(tag == '--'){
       res = res.replace('<-->', '<!-- ').replace('</-->', ' -->');
